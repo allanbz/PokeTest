@@ -10,7 +10,7 @@ public class PcColleague extends Colleague {
 	@Override
 	public void definirResolucao(String resolucao) {
 		// TODO Auto-generated method stub
-		System.out.println("---- Computer resolution (1024×768) ----");
+		System.out.println("---- Computer resolution (1080×1920) ----");
 		
 		System.out.println(resolucao);
 	}

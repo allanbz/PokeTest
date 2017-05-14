@@ -11,7 +11,7 @@ public class MobileColleague extends Colleague {
 	public void definirResolucao(String resolucao) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("---- MobilePhone resolution (340x640) ----");
+		System.out.println("---- MobilePhone resolution (720x1280) ----");
 		
 		System.out.println(resolucao);
 	}

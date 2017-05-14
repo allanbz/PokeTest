@@ -6,6 +6,10 @@ import java.util.Random;
 
 public class PokeTest {
 	
+	//restricao de acesso
+	private static String user = "admin";
+	private static String password = "pokemao";
+	
 	static Scanner input = new Scanner(System.in);
 	static Random rand = new Random();
 	
@@ -179,6 +183,8 @@ public class PokeTest {
 		mediador.adicionarColleague(pc);
 		mediador.adicionarColleague(tv);
 		
+		Display resolucao;
+		
 		ds.definirResolucao("1 - Oi, podemos jogar no 3DS!");
 		System.out.println("=========");
 		mobile.definirResolucao("2 - Oi, podemos jogar no Mobile!");
@@ -191,11 +197,27 @@ public class PokeTest {
 		System.out.println("Selecione sua plataforma!");
 		int n = input.nextInt();
 		
-		if(n == 1)System.out.println("Você escolheu 3Ds!");
-		else if(n == 2)System.out.println("Você escolheu Celular!");
-		else if(n == 3)System.out.println("Você escolheu Computador!");
-		else if(n == 4)System.out.println("Você escolheu Tv!");
-		else{
+		if(n == 1) {
+			System.out.println("Você escolheu 3Ds!");
+			
+			resolucao = new DSStrategy();
+			resolucao.configurarDisplay(resolucao);
+		} else if(n == 2) {
+			System.out.println("Você escolheu Celular!");
+			
+			resolucao = new MobileStrategy();
+			resolucao.configurarDisplay(resolucao);
+		} else if(n == 3) {
+			System.out.println("Você escolheu Computador!");
+			
+			resolucao = new PCStrategy();
+			resolucao.configurarDisplay(resolucao);
+		} else if(n == 4) {
+			System.out.println("Você escolheu Tv!");
+			
+			resolucao = new TVStrategy();
+			resolucao.configurarDisplay(resolucao);
+		} else {
 			System.out.println("Por favor, escolha uma opção válida");
 			screenPlay();
 		}
@@ -203,8 +225,32 @@ public class PokeTest {
 		System.out.println();
 		
 	}
+	
+	public static boolean verificarCredencial(String usuario, String senha) {
+		
+		if(usuario.equals(user) && senha.equals(password)) {
+			return true;
+		} else return false;
+	}
 
 	public static void main(String[] args) {
+		
+		Boolean verificador = true;
+		
+		while(verificador) {
+			
+			Scanner scanner = new Scanner(System.in);
+			
+			System.out.print("Usuário: ");
+			String usuario = scanner.nextLine();
+			System.out.print("Senha: ");
+			String senha = scanner.nextLine();
+			System.out.println("");
+			
+			if(verificarCredencial(usuario, senha)) {
+				verificador = false;
+			} else System.out.println("Dados incorretos!\n");
+		}
 		
 		screenPlay();
 		

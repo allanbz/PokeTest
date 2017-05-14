@@ -10,7 +10,7 @@ public class TvColleague extends Colleague {
 	@Override
 	public void definirResolucao(String resolucao) {
 		// TODO Auto-generated method stub
-		System.out.println("---- Tv resolution (1920x1080) ----");
+		System.out.println("---- Tv resolution (4096x2160) ----");
 		
 		System.out.println(resolucao);
 	}
